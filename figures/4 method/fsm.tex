@@ -1,0 +1,160 @@
+% style
+\SetVertexStyle[Shape=circle, InnerSep=1, MinSize=5, FillColor=black!75, LineColor=black!75]
+\SetEdgeStyle[Color=gray, Arrow=-stealth]
+\definecolor{ForestGreen}{rgb}{0.13, 0.55, 0.13}
+
+% motifs
+% \newcommand{\MotifOne}{
+% \begin{tikzpicture}
+%     \Vertex[x=-0.66, y=0.00]{0}
+%     \Vertex[x=0.00, y=0.00]{1}
+%     \Vertex[x=0.66, y=0.00]{2}
+%     \Edge[Direct, color=SentimentPositive](0)(1)
+%     \Edge[Direct, color=SentimentNegative](2)(1)
+% \end{tikzpicture}
+% }
+
+\newcommand{\MotifOne}{
+\begin{tikzpicture}
+    \Vertex[x=0.33, y=0.33]{0}
+    \Vertex[x=-0.33, y=0.00]{1}
+    \Vertex[x=0.33, y=-0.33]{2}
+    \Edge[Direct, color=SentimentPositive](0)(1)
+    \Edge[Direct, color=SentimentNegative](2)(1)
+\end{tikzpicture}
+}
+
+% \newcommand{\MotifTwo}{
+% \begin{tikzpicture}
+%     \Vertex[x=-0. 66, y=0.00]{0}
+%     \Vertex[x=0.00, y=0.00]{1}
+%     \Vertex[x=0.66, y=0.00]{2}
+%     \Edge[Direct, color=SentimentPositive](0)(1)
+%     \Edge[Direct, color=SentimentNeutral](1)(2)
+% \end{tikzpicture}
+% }
+
+\newcommand{\MotifTwo}{
+\begin{tikzpicture}
+    \Vertex[x=0.33, y=0.33]{0}
+    \Vertex[x=-0.33, y=0.00]{1}
+    \Vertex[x=0.33, y=-0.33]{2}
+    \Edge[Direct, color=SentimentPositive](0)(1)
+    \Edge[Direct, color=SentimentNeutral](1)(2)
+\end{tikzpicture}
+}
+
+\newcommand{\MotifThree}{
+\begin{tikzpicture}
+    \Vertex[x=0.33, y=0.33]{0}
+    \Vertex[x=-0.33, y=-0.33]{1}
+    \Edge[Direct, bend=-33, color=SentimentPositive](0)(1)
+    \Edge[Direct, bend=33, color=SentimentNegative](0)(1)
+\end{tikzpicture}
+}
+
+\newcommand{\MotifFour}{
+\begin{tikzpicture}
+    \Vertex[x=0.33, y=0.33]{0}
+    \Vertex[x=0, y=0]{1}
+    \Vertex[x=0.33, y=-0.33]{2}
+	\Vertex[x=-0.33, y=-0.33]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+}
+
+% graphs
+\newcommand{\GraphOne}{
+\begin{tikzpicture}
+	\Vertex[x=0.75, y=-0.66]{0}
+	\Vertex[x=0.33, y=0]{1}
+	\Vertex[x=-0.33, y=0]{2}
+	\Vertex[x=-0.75, y=-0.66]{3}
+	\Vertex[x=0.75, y=0.66]{4}
+	\Vertex[x=-0.75, y=0.66]{5}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentNegative,bend=-33,Direct](2)(1)
+	\Edge[color=SentimentPositive,bend=33,Direct](2)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(3)
+	\Edge[color=SentimentPositive,Direct](4)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(5)
+\end{tikzpicture}
+}
+
+\newcommand{\GraphTwo}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0.75]{0}
+	\Vertex[x=0, y=0]{1}
+	\Vertex[x=0.4, y=-0.66]{2}
+	\Vertex[x=-0.4, y=-0.66]{3}
+	\Vertex[x=0.75, y=0.2]{4}
+	\Vertex[x=-0.75, y=0.2]{5}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+	\Edge[color=SentimentNeutral,Direct](4)(1)
+	\Edge[color=SentimentPositive,bend=-33,Direct](5)(1)
+	\Edge[color=SentimentPositive,bend=33,Direct](5)(1)
+\end{tikzpicture}
+}
+
+%\newcommand{\GraphThree}{
+%\begin{tikzpicture}
+%	\Vertex[x=0, y=0]{0}
+%	\Vertex[x=0.5, y=0]{1}
+%	\Vertex[x=0, y=0.5]{2}
+%	\Vertex[x=0, y=-0.5]{3}
+%	\Vertex[x=0, y=-1.0]{4}
+%    \Vertex[x=-0.5, y=0]{5}
+%    \Vertex[x=0, y=0.525, opacity=0, size=0]{6}
+%	\Edge[color=SentimentNeutral,Direct](0)(1)
+%	\Edge[color=SentimentPositive,Direct](2)(0)
+%	\Edge[color=SentimentPositive,Direct](0)(3)
+%	\Edge[color=SentimentNegative,Direct](4)(3)
+%    \Edge[color=SentimentNeutral,Direct](0)(5)
+%\end{tikzpicture}
+%}
+\newcommand{\GraphThree}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+	\Vertex[x=0, y=0.5]{1}
+	\Vertex[x=-0.5, y=0]{2}
+	\Vertex[x=0.5, y=0]{3}
+	\Vertex[x=1, y=0]{4}
+    \Vertex[x=0, y=-0.5]{5}
+	\Edge[color=SentimentNeutral,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(0)
+	\Edge[color=SentimentPositive,Direct](0)(3)
+	\Edge[color=SentimentNegative,Direct](4)(3)
+    \Edge[color=SentimentNeutral,Direct](0)(5)
+\end{tikzpicture}
+}
+
+
+
+
+% \begin{tabular}{cccccc}
+%     & Subgraph & \multicolumn{3}{c}{Graph set} & Support \\
+%     &  & \GraphOne & \GraphTwo & \GraphThree &  \\
+%     \multirow{4}{*}{} & \MotifOne & X & & X & 2 \\
+%     & \MotifTwo & & & X & 1 \\
+%     & \MotifThree & X & & & 1 \\
+%     & \MotifFour & X & X & & 2 \\
+% \end{tabular}
+
+
+\setlength\extrarowheight{20pt}
+\begin{tabular}{c | c | c | c | c}
+     \multicolumn{5}{c}{\raisebox{.3em}{Graph set}} \\ 
+    % & & & & &  \\[-5.9em]
+    \raisebox{.3em}{Subgraph} & \GraphOne & \GraphTwo & \raisebox{0.47em}{\GraphThree} & \raisebox{.3em}{Support} \\ \hline
+    \MotifOne & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{2} \\ \hline
+    \MotifTwo & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{1} \\ \hline
+    \MotifThree & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{1} \\ \hline
+    \MotifFour & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{\textcolor{ForestGreen}{\faCheck}} & \raisebox{.8em}{\textcolor{red}{\faTimes}} & \raisebox{.8em}{2}
+\end{tabular}
+
+
+

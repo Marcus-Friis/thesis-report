@@ -1,0 +1,99 @@
+\label{appendix}
+
+\section{Glossary of TikTok Terms}\label{glossary}
+\begin{center}
+\begin{minipage}{\textwidth}  % Adjust width as needed
+    \renewcommand{\glossaryname}{}
+    \stepcounter{section}
+    % \addcontentsline{toc}{section}{\protect\numberline{\thesection}}  % Adds numbered glossary to TOC with proper spacing
+    \glsaddallunused
+    \small
+    \printglossaries
+\end{minipage}
+\end{center}
+
+
+
+% \clearpage
+\section{Full Data Tables}\label{lab:table_appendix}
+\begin{sidewaystable}[!h]
+    \centering
+    \scalebox{0.72}{
+        \input{figures/7 appendix/video_table_full}
+    }
+    \caption{Full table of video graph metrics.}
+    \label{tab:full_video_table}
+\end{sidewaystable}
+
+\begin{sidewaystable}[!h]
+    \centering
+    \adjustbox{max width=\textwidth, max height=\textheight}{%
+        \input{figures/7 appendix/user_table_full}
+    }
+    \caption{Full table of user graph metrics.}
+    \label{tab:full_user_table}
+\end{sidewaystable}
+
+\begin{sidewaystable}[!h]
+    \centering
+    \scalebox{0.72}{
+        \input{figures/7 appendix/user_lcc_table_full}
+    }
+    \caption{Full table of largest weak component user graph metrics.}
+    \label{tab:full_user_lcc_table}
+\end{sidewaystable}
+
+
+\clearpage
+\section{Full Frequent Subgraph Mining figures}\label{lab:fsm_appendix}
+\begin{figure}[!htbp]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/7 appendix/sentiment_directed_full}
+    \end{adjustwidth}
+    \caption{Full figure of all mined directed sentiment subgraphs for subgraphs up to $|V|=4$ and down to support $12$. This figure uses the support computed by MOSS, which means multi-edges can occur, and the specific supports of subgraphs can differ from figure \ref{fig:sentiment_directed}.}
+    \label{fig:sentiment_directed_full}
+\end{figure}
+
+\begin{sidewaystable}[h]
+    \centering
+    \input{figures/7 appendix/large_subgraphs_full}
+    \caption{Full figure of larger undirected subgraphs.}
+    \label{fig:large_subgraphs_full}
+\end{sidewaystable}
+
+
+\clearpage
+\section{Alternative Graph Embedding Scatter Plots}\label{lab:alt_graph_embs}
+\begin{figure}[!h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/7 appendix/embeddings/feathergraph.pgf}
+    \end{adjustwidth}
+    \caption{FeatherGraph embeddings of user graphs.}
+    \label{fig:feathergraph_embeddings}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/7 appendix/embeddings/directed_subgraph.pgf}
+    \end{adjustwidth}
+    \caption{Bag-Of-Subgraphs with directed subgraphs.}
+    \label{fig:directed_subgraph_embeddings}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/7 appendix/embeddings/sentiment_subgraph_directed.pgf}
+    \end{adjustwidth}
+    \caption{Bag-Of-Subgraphs with directed sentiment subgraphs.}
+    \label{fig:directed_sentiment_subgraph_embeddings}
+\end{figure}
+
+

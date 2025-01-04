@@ -1,0 +1,50 @@
+\SetVertexStyle[Shape=circle, InnerSep=2, MinSize=14, FillColor=orange!40, LineColor=black, TextFont=\normalsize]
+\SetEdgeStyle[Color=gray, Arrow=-stealth]
+
+\begin{tikzpicture}
+	\Vertex[x=-0.03, y=-0.88, label=$A$, color=VertexSentimentMissing]{0}
+	\Vertex[x=-1.15, y=-1.17, label=$A$, color=VertexSentimentNeutral]{1}
+	\Vertex[x=1.03, y=-1.01, label=$A$,  color=VertexSentimentPositive]{2}
+	\Vertex[x=1.12, y=-2.15, label=$B$,  color=VertexSentimentMissing]{3}
+	\Vertex[x=-0.74, y=1.70, label=$C$,  color=VertexSentimentPositive]{4}
+	\Vertex[x=-1.72, y=1.51, label=$D$,  color=VertexSentimentNeutral]{5}
+	\Vertex[x=-2.56, y=0.87, label=$C$,  color=VertexSentimentPositive]{6}
+	\Vertex[x=-2.19, y=-0.18, label=$E$, color=VertexSentimentMissing]{7}
+	\Vertex[x=-1.69, y=0.78, label=$F$,  color=VertexSentimentMissing]{8}
+	\Vertex[x=-3.22, y=-0.72, label=$A$, color=VertexSentimentMissing]{9}
+	\Vertex[x=-3.00, y=0.22, label=$F$,  color=VertexSentimentNeutral]{10}
+	\Vertex[x=-2.44, y=-1.14, label=$G$, color=VertexSentimentNegative]{11}
+	\Vertex[x=-1.88, y=-2.06, label=$F$, color=VertexSentimentNeutral]{12}
+	\Vertex[x=-2.60, y=-2.44, label=$H$, color=VertexSentimentPositive]{13}
+	\Vertex[x=-3.11, y=-1.59, label=$F$, color=VertexSentimentPositive]{14}
+	\Vertex[x=-1.86, y=-2.95, label=$I$, color=VertexSentimentNeutral]{15}
+	\Vertex[x=-0.82, y=-2.52, label=$J$, color=VertexSentimentNegative]{16}
+	\Vertex[x=0.65, y=-2.79, label=$K$,  color=VertexSentimentNeutral]{17}
+	\Vertex[x=0.06, y=-1.96, label=$L$,  color=VertexSentimentNegative]{18}
+	\Vertex[x=-0.07, y=-3.11, label=$K$, color=VertexSentimentNegative]{19}
+	\Vertex[x=-1.08, y=-3.25, label=$F$, color=VertexSentimentNegative]{20}
+	\Vertex[x=-0.80, y=0.03, label=$K$,  color=VertexSentimentNeutral]{21}
+	\Vertex[x=0.38, y=0.28, label=$F$,   color=VertexSentimentNeutral]{22}
+	\Vertex[x=0.26, y=1.41, label=$K$,   color=VertexSentimentMissing]{23}
+	\Vertex[x=0.93, y=0.98, label=$K$,   color=VertexSentimentMissing]{24}
+	\Vertex[x=1.41, y=0.17, label=$D$,   color=VertexSentimentPositive]{25}
+	\Vertex[x=-0.49, y=1.03, label=$I$,  color=VertexSentimentMissing]{26}
+	\Vertex[x=1.59, y=-1.54, label=$I$,  color=VertexSentimentNegative]{27}
+	\Vertex[x=1.65, y=-0.49, label=$M$,  color=VertexSentimentNegative]{28}
+	\Edge[Direct](0)(1)
+	\Edge[Direct](2)(3)
+	\Edge[Direct](4)(5)
+	\Edge[Direct](6)(5)
+	\Edge[Direct](7)(8)
+	\Edge[Direct](9)(10)
+	\Edge[Direct](11)(12)
+	\Edge[Direct](13)(14)
+	\Edge[Direct](15)(16)
+	\Edge[Direct](17)(18)
+	\Edge[Direct](19)(20)
+	\Edge[Direct](21)(22)
+	\Edge[Direct](23)(22)
+	\Edge[Direct](24)(25)
+	\Edge[Direct](26)(22)
+	\Edge[Direct](27)(28)
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\chapter{Conclusion}
+\label{conclusion}
+
+This paper set out to compose and analyze TikTok StitchGraph through the lens of network analysis. Despite technical instability, uncertainties, and limitations, $36$ distinct networks based on hashtags are successfully constructed, describing the use of the TikTok stitch functionality on both a user- and video level. 
+By applying a combination of basic network analysis, graph augmentation with sentiment analysis, subgraph mining, and graph embeddings to user graphs, communication with stitches is analyzed to characterize what makes the stitch unique in a user-centric network context. Notably, the graphs show no clustering, no reciprocity, and high local degree centralization.
+
+% Stitch graphs are augmented with sentiment attributes based on stitch transcriptions, serving as an additional dimension to graph analysis. 
+
+Using transactional frequent subgraph mining, the mined subgraphs reveal patterns that form the building blocks of TikTok user graphs, with stars and star-like structures being the most frequently occurring substructures. Additionally, video metadata, edge directionality, and the scarcity of cyclic subgraphs indicate that it is rare for users who stitch to also be stitched. Despite this, no discovered subgraphs can be considered as statistically significant motifs under applied configuration null models, indicating that the discovered subgraphs are explained by the degree distribution of user graphs. This also holds true for sentiment enriched subgraph mining, revealing no patterns with regards to the sentiment of stitches. 
+
+The graph embeddings further expose the limitations of the current dataset and methods. By applying Graph2Vec and a Bag-Of-Subgraphs approach, graphs are represented and compared in vector spaces, yet they reveal no relation between the embedding of a graph and its related topic category. Instead, they primarily capture the size of graphs, forming clusters of similarly sized networks. 
+
+Comparing these findings to six obtained Twitter graphs reveals minor differences. Outside of descriptive statistics, both subgraph analysis and graph embeddings show that Twitter is seemingly comparable to TikTok, displaying similar support patterns in subgraphs and no clear separation in embeddings. These finding are however constrained by the small sample of Twitter graphs, and the fundamental differences in data collection. 
+
+Combining all the results paints a picture of TikTok stitch graphs showing clear patterns for stitch behavior with regards to directionality, an aversion towards cycles, and a preference for stars and star-like structures, that are comparable to structures on Twitter.

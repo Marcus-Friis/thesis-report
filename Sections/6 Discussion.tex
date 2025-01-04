@@ -1,0 +1,226 @@
+\chapter{Discussion}
+The TikTok StitchGraph dataset offers numerous avenues for exploration and analysis. The presented data collection, methodology, and results, comprise one approach to deepening insights into TikTok stitch patterns, yet they are limited by the assumptions of the specific approach, and other equally interesting findings could be explored with an alternate strategy. In this section, the findings and implications of the results are discussed, along with proposals for improvements and future research directions.
+
+
+\section{TikTok StitchGraph: A First Attempt at Understanding TikTok Stitches}
+
+We have collected the TikTok StitchGraph dataset: a starting point to study TikTok’s stitch-based interactions, covering $36$ hashtags across different topics. The graph structures, comprising both video and user graphs, generally exhibit sparse, star-like patterns with high degree centralization, short path lengths, low clustering, and low reciprocity. Together, they reflect how stitches on TikTok often center around key videos and/or users. These observations frame the shape of TikTok stitch communication, as further backed up by the subgraph analysis. 
+
+The data collection process involved some uncertainty in what data could be collected, particularly in the early stages of this project. As of creating this project, we experienced major instability issues, and while the API was improved by the developers during this time, it constrained the possibilities for what data could be obtained, and what downstream analyses could be performed. 
+Furthermore, the lack of a built-in method for identifying stitch connections required indirect methods, such as using the phrase “stitch with” in video descriptions, which may have introduced gaps or inaccuracies in the dataset. 
+
+The StitchGraph dataset focuses exclusively on stitches collected in May $2024$ centered around $36$ selected hashtags. Alternate collection criteria could yield further insights into the domain of TikTok communication. Future work directions could include exploring other interaction types, such as duets, replies to comments, or other TikTok features useful for building a graph structure. Additionally, structuring the dataset as a single graph could facilitate analyses such as single graph mining, community detection, and link prediction. Another direction might involve changing the video selection criteria. For instance, one potential approach is building datasets around specific events or trending topics, instead of using a hashtag-based approach set in May $2024$. The reliance on hashtags excludes a significant portion of TikTok communication, especially cross-community interactions not tied to specific hashtags.
+    
+% • answers Q1. 
+% • limits regarding data collections
+% • • api poop
+% • • • shapes the way we have to use the data
+% • • • a lot of exploration in the beginning --> not sure what data we get, not sure what we can because of it
+% • future work
+% • • further expand the dataset with duets, sounds, comments, comment replies, tagging of other users
+% • * build datasets around events or specific trends to target specific analyses
+% • • restructure the project as a single graph to allow for community discovery, link prediction, etc.
+% • • explore alternative dataset construction methods with new parameters: keywords, time periods, hashtags, geographical locations
+% 
+% Takeaway: We have collected a nice dataset, but it is limited by the scope and API, and to say more, other data (broader/deeper) should be collected.
+
+
+
+\section{Unrealized Potential of Video Content}
+This paper's primary focus is on analyzing stitches as graphs. However, a stitch is a video and is by nature multi-modal. Currently, the multi-modality of videos is only used for transcriptions of videos to extract sentiment. While this serves as an exemplary additional dimension to the graph structure, there is an untapped potential in the complexity of TikTok videos, both in terms of extracting additional attributes, and as a stand-alone research subject. Furthermore, the findings from the sentiment labels are limited by human error related to the \textit{\#challenge}, \textit{\#football}, \textit{\#makeup}, and \textit{\#minecraft} graphs. 
+
+The applied sentiment analysis method relies on classifying sentiment on video transcriptions. This simplistic approach, while useful for speech-dominated videos, is limited in its capacity and utility. Many videos on the platform align with TikTok's origin as a hub for lip-sync content, rather than a platform primarily focused on spoken communication. Some hashtags such as \textit{\#storytime} and \textit{\#gaza} have extensive speech, while others such as \textit{\#dogsoftiktok} and \textit{\#kpop} feature less spoken language. Sentiment of transcriptions is less representative for these hashtags with comparatively less speech. For these, incorporating visual and auditory data could support more nuanced sentiment detection, similar to that in \cite{lai2023multimodalsentimentanalysissurvey}.
+
+Although sentiment serves as an interesting dimension in the subgraph analysis, there is unrealized potential in exploring it further. The current approach does not fully leverage the rich, multi-modal information in TikTok videos, highlighting possibilities for deeper and more diverse analysis tasks. Exploring sentiment analysis further shows that there is a difference in mean sentiment between political and non-political hashtags. Using VADER's computed normalized, weighted composite score for each video reveals that the Political hashtags score a mean of $0.03$ compared to Entertainment's $0.14$ and Shared Interest's $0.17$. This indicates a clear difference in the sentiment of hashtags based on the content type. One direction to explore could be using the stitch graphs as signed networks, looking into their balance, and relating this to their categorizations. 
+
+Going beyond sentiment also yields new opportunities. We classify audio types, yet these are not utilized beyond light exploratory data analysis. Modeling stitch interactions with more complex labels such as whether a stitch is a reaction to a prompt, a discussion of opinions presented in the stitchee, or something entirely different, could shed light on unexplored dynamics of TikTok stitches.  
+
+% The potential of other edge attributes also remains unexplored. Beyond sentiment, edge attributes that explicitly represent interactions between videos, such as whether an interaction is a reaction, debate, or answer—might provide a more meaningful context in the patterns revealed through frequent subgraph mining. Similarly, vertex attributes, such as influencer labels, could allow for analysis of how key users influence network dynamics.
+
+%Video video data
+
+% While the video graphs provided insight into content interactions, their full potential is unexplored. 
+
+%need some rød tråd
+
+% Sentiment analysis has provided an example of how video content can enhance graph structures, yet its application remains surface-level. Current sentiment analysis relies only on textual transcription, not taking into account the multimodal nature of TikTok videos. Incorporating visual and auditory data could support more nuanced sentiment detection, similar to that in \cite{lai2023multimodalsentimentanalysissurvey}, and even support the creation of signed networks
+ 
+
+% • Sentiment
+% • • more advanced sentiment notion - use multimodal info x
+% • • Surface level analysis of sentiment x
+% * * Very under-utilized x
+% * * Did not yield much in subgraph analysis
+% • • Signed network x
+
+% • audio classifier - use it for more than EDA x
+
+% • Other edge attributes
+% • • Instead of sentiment, try reaction, debate, answer. Might make more sense in FSM than sentiment x
+% • • Vertex attributes?
+% • • • Influencer labels? could lead to analysis of influencers role in the network
+
+% • Other dimensions x
+% • • The graphs represent videos, yet we only transcribe x
+
+
+\section{Subgraph Analysis and the Absence of Motifs}
+The subgraph analysis points to stars and star-like structures dominating stitch graphs, exhibiting well-defined directional patterns, and an aversion towards cycles. However, given the current transactional setting and the choice of null model, no subgraphs can be considered motifs. Expanding subgraphs with sentiment labels does not provide additional insights into sentiment patterns or the defining topology, apart from further validating the observed preference for star patterns.
+
+The first notable observation from the subgraph analysis is the lack of cyclic substructures. No cyclic structures pass the minimum support threshold. This is useful, as it means any discovered substructure also contains no cycles. The directed subgraphs further expand on this, with mixed-direction two-stars $S_2$ being much less frequent than in- and out-two-stars. Along with the infrequency of odd-numbered cycles and the observed view-, like-, and follower count differences between stitcher and stitchee, it points to patterns of stitches mostly being directed from lesser-known users to popular users, and it being rare for popular users to create stitches. This potential mechanism of TikTok serves as a direction for future research, diving deeper into how the platform affordances shape the TikTok stitching meta. 
+
+Despite the characteristics of the discovered subgraphs, none qualify as motifs under the null model. There are two reasons for this: the choice of configuration model as null model and the transactional support definition. Stars and star-like patterns are identified as important structures in stitch graphs, with smaller chains connecting stars into larger components. However, stars are entirely explained by their degree distribution which a configuration model preserves, and as such are not considered statistically significant. This, in conjunction with the transactional support, means they are likely to occur at least once in a configuration model, and thus be deemed not significant. Another support definition could alleviate this to a degree. However, the simplistic degree distribution of the stitch graphs limit what other patterns can occur. 
+
+Picking alternative null models could reveal motifs. For instance, the simple Erdös-Rényi random graph provides a less restrictive baseline, preserving the number of vertices and edges. Under this model, the directed square from Figure \ref{fig:directed_subgraphs} qualifies as a motif, with a support of $16$ in user graphs compared to $8$ in random graphs. The relaxed constraints of random graphs make identified motifs less meaningful. A more appropriate comparison could involve analogous social media graphs. Although this project draws comparisons with Twitter, the limited sample size diminishes its utility. Collecting a substantial set of comparable graphs from social media platforms could help to discover motifs that distinguish TikTok from other platforms.
+
+The subgraph analysis is extended with sentiment labels. The supports in isolation reveals no surface-level insights into stitch patterns. However, it is currently not compared to any relevant null model, and consequently, is it is unknown whether any of the mined patterns are significant, making it infeasible to draw conclusions about specific subgraphs. Future work should compare sentiment subgraphs to a relevant null model if this direction is further explored. 
+
+Sentiment labels exemplify one approach to augmenting stitch graphs with additional attributes. Frequent subgraph mining supports both vertex and edge attributes, and any information that can be attributed to either of these could be explored with this method. For instance, an alternative to sentiment labels could, for example, be exploring the role of influencers in the subgraphs of stitch graphs. By leveraging user metadata, vertices could be assigned influencer labels and subsequently mined for subgraph patterns and potentially motifs, functioning as avenues for new insights in stitch patterns. 
+
+
+
+
+% * answers Q2
+% • no cycles x
+% • • smaller users tend to stitch popular users x
+% • • • cycles require popular users to stitch smaller users, which is rare x
+% • • • qualitative study needed to understand why this behavior occurs x
+% * * other sup def could explain further x
+
+% * directed subgraph mining looks promising
+% * * computationally heavy - poor old computer
+% * * combining the deep undirected and shallow directed, you can kinda tell the direction of undirected
+% * * combining directed mining with alternate node labels e.g. influencer would seems promising
+
+% • no significant motifs found x
+% • • choice of null model (config model) preserves degree distribution at the node level x
+% • • • stars remain stars in the network due to this preservation x
+% * * * using an erdos-renyi, we get some motifs e.g. directed square sup $16$ vs $7.5$, x
+% • • potential influence of transactional support definition x
+% • • comparable to Twitter networks, where similar patterns are observed x
+
+% • future work: 
+% • • explore new support definitions to better identify motifs x
+% * * alternate null model x
+% • • * obtain more social media networks and build config models out of them, somehow? x
+% * * more direction x
+
+% Takeaway: FSM points to stars and star-like structures dominating stitch graphs with common patterns for direction, but with the current transactional setting and choice of null-model, no subgraphs can be considered motifs. 
+
+\section{Embeddings and Topic-Topology Relations}
+Using Graph2Vec and the Bag-Of-Subgraphs approach, user graphs are represented in vector format. However, doing so reveals no clear relationship between topic and topology, as both approaches primarily capture size-related features rather than topic-specific differences. 
+
+Graph2Vec is employed as a graph representation learning technique to encode the structural properties of the stitch graphs into an embedding space. The embeddings provide a spectrum of user graphs, yet show no clear separation between graph categories. Graph size is the primary factor influencing the placement of graphs in the embedding space, with larger graphs clustering towards the upper regions of the UMAP scatter plot (Figure \ref{fig:emb_scatter}). Similarly, the Bag-Of-Subgraphs embeddings also reflect a reliance on size, as they primarily capture subgraph frequencies proportional to the graphs' sizes. The embeddings reveal two distinct groupings of data points, which are differentiated by few a subgraphs being present in one set of graphs and absent in the other. This method is also limited by the lack of motifs from the subgraph analysis. A more nuanced set of subgraphs and a non-binary approach accounting for subgraph frequency could improve separation between graphs.  
+
+Comparisons with Twitter reply networks reveal similar limitations in distinguishing structural features related to content themes, highlighting how size-related factors dominate in the embeddings of both platforms. Larger Twitter graphs display minor separation from the larger user graphs in the Graph2Vec space, yet these are not captured using clustering. There is no separation in the Bag-Of-Subgraphs spaces, likely due to the subgraphs being mined from TikTok. Without using subgraphs distinct to Twitter, it might not capture unique patterns exclusive to Twitter. 
+
+Further research should consider graph sizes to minimize its influence as the primary differentiator. Alternatively, sampling strategies could be employed to sample random subsets of vertices, mitigating size-related biases. This approach is effective, provided the graphs are sufficiently large, ensuring that the sampled subset remains representative of the original structure.
+
+% * not explicit answer to Q3, but the idea stands that embeddings can help with this
+% • g2v x
+% • • provides a spectrum of graphs (funny upwards bendy line) x
+% • • no clear separation between graphs observed in embedding space x
+% • • • graph size explained the position of graphs in the embedding space x
+% • • • potential fix: x
+% • • • • new data that is more comparable x
+% • • • • sample a random subset of nodes from larger graphs x
+% • • • • • only really works on graphs above a set size x
+
+% Graph2Vec encodes how stitch graphs grow "as expected" with simply gaining larger stars and more bridges. If Graph2Vec works perfectly, then size being the only major differentiator means the mechanism behind TikTok stitch graphs are explained by the platform. 
+
+% Takeaway: We see no relation between topic and topology, as both Graph2Vec and Bag-Of-Subgraphs are capturing primarily size. 
+
+
+\section{TikTok and Twitter: A Comparative Discussion}
+Reflecting the TikTok findings in the Twitter reference graphs reveals some differences in simple network metrics, yet little difference in subgraphs and graph embeddings. Various factors contribute to this, including data collection specifics, the amount of data, the applied preprocessing, and the differing roles of replies versus stitches.
+
+Firstly, the details of data collection are fundamentally different. The Twitter data does not employ a hashtag-centric strategy, is from a different time period and range, and applies rules to the selection of included users. These differences are significant as they influence the structure of the graphs and the implications of our findings. The limited sample of six Twitter graphs also constrain the representativeness of the findings. To reduce uncertainty, more graphs are necessary, as the results are currently too dependent on the specifics of the compared graphs.
+
+The nature of the reply is also different from that of the stitch. On TikTok, there are multiple features for interacting with other users, both in text and video format. The stitch is just one of many social features and is used less compared to its sibling, the duet. In contrast, the reply is the primary function for publicly reacting and adding to others' tweets.
+
+With the applied methodology, there is little to no observed difference between TikTok and Twitter. One reason is the preprocessing of the graphs. For almost all applied techniques, graphs are required to be simple. This reduces some of what makes Twitter unique, as it is more prone to self-loops and multi-edges than TikTok. Furthermore, communication outside the largest component appears to be generally more nuanced in the Twitter graphs.
+
+For future research, it would be beneficial to either compose or obtain more comparable Twitter data on a larger scale. This would facilitate deeper insights and could serve as a relevant null model for motif discovery.
+
+
+% The TikTok-centric approach also contributes to the lack of differences. All frequent subgraph mining is based in TikTok, and the mined subgraphs display a surface-level similar behavior between TikTok and Twitter. Furthermore, the subgraph-based approach means Twitter can consist of super-structures of the subgraphs, and this is not clear from any applied method. 
+
+
+
+
+%<fsm stuff>
+
+%Future Work
+
+%Future directions could address these limitations by refining the TikTok dataset to align with the methods used for Twitter data collection. For example, expanding the TikTok dataset to include a collection of hashtags for topics like "gun control," similar to Twitter's approach, could provide a more balanced comparison.
+
+%Another data collection approach could involve collecting data for both platforms simultaneously while ensuring similar collection rules, enabling cross-platform analyses of hashtags that trend simultaneously on TikTok and Twitter.  
+
+
+% * answers Q4
+% * Heavily limited by data amount and collection
+% * removal of multi-edges and self loops make twitter less distinct
+% * focus on LCC also makes it less distinct
+% * Twitter replies encompass all public interactions on Twitter, TikTok stitches are only a tiny subset of communication. 
+% * All patterns (from FSM) we find in TikTok also appear in Twitter, but this might not be the case if flipped. 
+% * * Also a product of isomorphism
+% * * No separation from TikTok since the subgraphs are based on TikTok subgraphs
+% * future work
+% * * more data?
+% * * more comparable data? --> similar criteria driving data collection (our guncontrol network was much smaller than Twitter's, plus they used a collection of hashtags to build guncontrol network, while we simply gathered \#guncontrol only)
+
+% Takeaway: While TikTok and Twitter have some differences in simple network metrics, we find no significant difference between them in subgraphs and graph embeddings.
+
+
+% Dataset
+% Video content stuff
+% Subgraph
+% Embeddings
+% Synthesis af det hele
+
+
+
+
+% ----------DATASET STUUUUUF-----------hey girliee, can i eat yo azz----------
+
+% Unsure of what data we could obtain at the start, because api poop. 
+
+% We can further enlarge the dataset with duets, sounds, comments, comment replies, tagging of other users, All of these have a network/graph perspective as well. 
+
+% We could build the dataset differently, with other values for these parameters: keywords, periods, collection of hashtags, geographical locations. Or build it around event based stuff or specific current trends.
+
+% If we did the project as a single graph, it opens up for new methods like community discovery, link predictions, etc. Basically methods that does not work on multiple graphs as once. 
+
+% ------------METHOD STUUUUUF-----------------uncle not my b-hole------------
+
+% No cycles as smaller users tend to stitch popular users. In order to get a cycle, the popular user would have to stitch the smaller user, which is a rare event. A qualitative study is probably needed in order to figure out why. 
+
+% We do not find any motifs (significant subgraphs). Due to the choice of null model, config models preserve the degree distribution on a node level, resulting in stars becomming.. stars :) 
+% - maybe bc of transactional support definition
+% - comparable to Twitter, as we see the same stuff happening on the Twitter networks. 
+% A fix to this: new support definition. 
+% future work: find sentiment motifs --> requires config model for sentiment graphs.
+% Sentiment did not provide much valuable information sentiment graphs. 
+
+  
+
+%     --- video content method stuff din far---
+%     We ended up never making use of the audio classification, but still (probably) a good/useful addition to the dataset.
+
+%     Sentiment (signed network) didn't really add anything to our specific analysis. Type of edge: debate vs answer \/ reaction vs actual answer. 
+    
+%     Sentiment alignment  - user projections. Do users that stitch the same video have the same sentiment towards it?
+
+%     Use multimodal solutions to capture more than just the sentiment of written text: sound stuff, visual stuff. 
+
+
+%     --- embeddings ------------hi-----------------in my ass----------
+%     G2V provides a spectrum of graphs (funny upwards bendy line)
+%     We did not see any clear seperation between the graph. We found out that the size of graph explained the position of graphs in the embedding graphs.
+%     - a workaround for this could be to sample a random subset of nodes from the graphs. This would only work for graphs above a specific size. Sampling from a graphs that has 11 nodes total wouldnt provide any useful results. 
+
+
+
+
+
+

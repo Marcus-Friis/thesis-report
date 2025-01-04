@@ -1,0 +1,358 @@
+\setlength{\tabcolsep}{9pt}
+\begin{tabular}{cccccccccc}
+$|V| = 2$&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.50, y=-0.00]{0}
+	\Vertex[x=-0.28, y=0.00]{1}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+\end{tikzpicture}
+\\$30 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{6}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.50, y=-0.00]{0}
+	\Vertex[x=-0.28, y=0.00]{1}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+\end{tikzpicture}
+\\$30 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.50, y=-0.00]{0}
+	\Vertex[x=-0.28, y=0.00]{1}
+	\Edge[color=SentimentMissing,Direct](0)(1)
+\end{tikzpicture}
+\\$27 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.50, y=-0.00]{0}
+	\Vertex[x=-0.28, y=0.00]{1}
+	\Edge[color=SentimentNeutral,Direct](0)(1)
+\end{tikzpicture}
+\\$22 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+\\[0.9cm]
+$|V| = 3$&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+\end{tikzpicture}
+\\$26 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+\end{tikzpicture}
+\\$26 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.18, y=0.02]{0}
+	\Vertex[x=0.50, y=0.38]{1}
+	\Vertex[x=-0.14, y=-0.33]{2}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+\end{tikzpicture}
+\\$24 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentMissing,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+\end{tikzpicture}
+\\$24 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.18, y=0.02]{0}
+	\Vertex[x=0.50, y=0.38]{1}
+	\Vertex[x=-0.14, y=-0.33]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](0)(2)
+\end{tikzpicture}
+\\$23 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.18, y=0.02]{0}
+	\Vertex[x=0.50, y=0.38]{1}
+	\Vertex[x=-0.14, y=-0.33]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+\end{tikzpicture}
+\\$23 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](2)(1)
+\end{tikzpicture}
+\\$23 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+\end{tikzpicture}
+\\$22 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+\end{tikzpicture}
+\\$22 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(1)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.18, y=0.02]{0}
+	\Vertex[x=0.50, y=0.38]{1}
+	\Vertex[x=-0.14, y=-0.33]{2}
+	\Edge[color=SentimentMissing,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](0)(2)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.06, y=0.50]{0}
+	\Vertex[x=-0.06, y=0.14]{1}
+	\Vertex[x=-0.18, y=-0.23]{2}
+	\Edge[color=SentimentMissing,Direct](0)(1)
+	\Edge[color=SentimentNeutral,Direct](2)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.18, y=0.02]{0}
+	\Vertex[x=0.50, y=0.38]{1}
+	\Vertex[x=-0.14, y=-0.33]{2}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentNeutral,Direct](0)(2)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+\\[0.9cm]
+$|V| = 4$&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$23 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.19, y=-0.10]{0}
+	\Vertex[x=0.49, y=0.17]{1}
+	\Vertex[x=-0.20, y=0.02]{2}
+	\Vertex[x=0.28, y=-0.50]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](0)(3)
+\end{tikzpicture}
+\\$22 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.19, y=-0.10]{0}
+	\Vertex[x=0.49, y=0.17]{1}
+	\Vertex[x=-0.20, y=0.02]{2}
+	\Vertex[x=0.28, y=-0.50]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](0)(3)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.19, y=-0.10]{0}
+	\Vertex[x=0.49, y=0.17]{1}
+	\Vertex[x=-0.20, y=0.02]{2}
+	\Vertex[x=0.28, y=-0.50]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](0)(3)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.04, y=0.05]{0}
+	\Vertex[x=0.10, y=-0.23]{1}
+	\Vertex[x=-0.01, y=0.32]{2}
+	\Vertex[x=0.15, y=-0.50]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$21 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.04, y=0.05]{0}
+	\Vertex[x=0.10, y=-0.23]{1}
+	\Vertex[x=-0.01, y=0.32]{2}
+	\Vertex[x=0.15, y=-0.50]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentPositive,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentMissing,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$20 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.04, y=0.05]{0}
+	\Vertex[x=0.10, y=-0.23]{1}
+	\Vertex[x=-0.01, y=0.32]{2}
+	\Vertex[x=0.15, y=-0.50]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](3)(1)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=-0.23, y=0.20]{0}
+	\Vertex[x=-0.26, y=0.50]{1}
+	\Vertex[x=-0.20, y=-0.10]{2}
+	\Vertex[x=-0.17, y=-0.41]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](0)(2)
+	\Edge[color=SentimentPositive,Direct](3)(2)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentNeutral,Direct](3)(1)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.35, y=0.50]{0}
+	\Vertex[x=0.09, y=0.18]{1}
+	\Vertex[x=-0.17, y=-0.13]{2}
+	\Vertex[x=-0.43, y=-0.45]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentPositive,Direct](2)(1)
+	\Edge[color=SentimentPositive,Direct](2)(3)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentNegative,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+&\makecell{\begin{tikzpicture}
+	\Vertex[x=0.17, y=0.49]{0}
+	\Vertex[x=-0.10, y=0.19]{1}
+	\Vertex[x=-0.50, y=0.28]{2}
+	\Vertex[x=0.02, y=-0.20]{3}
+	\Edge[color=SentimentNegative,Direct](0)(1)
+	\Edge[color=SentimentMissing,Direct](2)(1)
+	\Edge[color=SentimentMissing,Direct](3)(1)
+\end{tikzpicture}
+\\$19 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{-}$
+}
+\\[0.9cm]
+\end{tabular}

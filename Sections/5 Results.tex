@@ -1,0 +1,128 @@
+\chapter{Results}
+We introduce the TikTok StitchGraph dataset. From this, applying the presented methodology, we present a look into the foundational subgraphs, and how the collected hashtags relate in their topology. All results are derived from analyzing the largest weakly connected component of the networks.
+
+Importantly, the sentiment results are skewed by human error. \textit{\#challenge}, \textit{\#football}, \textit{\#makeup}, and \textit{\#minecraft} are all missing some sentiment labels. \textit{\#makeup} and \textit{\#minecraft} are only missing a small portion, \textit{\#football} is missing all edges not classified as speech by the applied audio classifier, and \textit{\#challenge} is missing essentially all sentiment labels. This directly impacts the mined sentiment subgraphs and their support, and the sentiment Bag-Of-Subgraphs graph representations. Results based on these should be interpreted accordingly. 
+
+\section{TikTok Subgraphs and Motifs}
+In this section, we present the findings of the subgraph analysis. The results are illustrated through figures that show various subgraphs. Each subgraph is accompanied by two numbers indicating the support for TikTok and Twitter, respectively ($TikTok \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{Twitter}$). Importantly, the reported support values represent transactional support and should be interpreted accordingly.
+
+This section is organized as follows: First, we highlight observations regarding cyclic subgraphs and their absence in the mined results. Next, we examine the hierarchical relationships among subgraphs and the relative prevalence of stars and chains. This is followed by an exploration of adding sentiment and directionality as dimensions in the analysis, comparing TikTok’s patterns to those observed on Twitter. Lastly, we discuss the absence of any significant motifs under the used null model. 
+
+\subsection{Subgraphs}
+
+The first notable observation is the lack of cyclic subgraphs. As seen in Figure \ref{fig:cycle_subgraphs}, the most common cycle is a square, with a support of $16$. This support is low enough such that subgraph mining will not find any subgraph that is a supergraph of a cycle. Interestingly, the support of cycles with an even number of vertices is consistently higher than that of cycles with an odd number of vertices. An odd-numbered cycle means that a user has to be both a stitcher and a stitchee for these cycles to occur. This is indicative of it being rare for a user to both stitch and be stitched, which is also reflected by the mean $38$ magnitude difference in the number of user followers between stitchers and stitchees. In contrast, this tendency is not observed in the Twitter data. Instead, all reported cyclic subgraphs occur almost equally, with most of them having Twitter support $4$. 
+
+\begin{figure}[!htbp]
+    \centering
+    \input{figures/5 results/cycle_subgraphs}
+    \caption{The figure shows the cyclic subgraphs identified within the largest connected components of user graphs, ranging from a triangle to an octagon. The numbers beneath denote the support of the subgraph in TikTok and Twitter in that order.}
+    \label{fig:cycle_subgraphs}
+\end{figure}
+
+
+Given that cycles are not present in any mined subgraph, the complete subgraph hierarchy of up to six vertices can be mapped out, as presented in Figure \ref{fig:subgraph_hierarchy}. From it, the hierarchy of subgraphs is apparent, illustrating how the support of any child subgraph is at most equal to its parent. We see that stars and star-like patterns generally have slightly higher support than chains and chain-like patterns. Furthermore, we note that, without cycles, any mined subgraph will always be an interpolation between stars and chains.
+
+\begin{figure}[!htbp]
+    \centering
+    \input{figures/5 results/subgraph_hierarchy}
+    \caption{The figure shows the frequent undirected subgraphs identified in TikTok user graphs using gSpan on the largest connected component. The lines between subgraphs illustrate their hierarchical relationships, where each subgraph extends from the one above. The numbers are the supports of the given subgraphs in TikTok and Twitter respectively. Simpler structures, such as dyads $S_1$ ($support=36$), form the foundation, while more complex patterns like chains and star-like structures emerge as extensions with lower support. This highlights how TikTok stitch patterns evolve, often around central hubs or sequential interactions.}
+    \label{fig:subgraph_hierarchy}
+\end{figure}
+
+These findings are also true going beyond subgraphs with six vertices, as seen in Figure \ref{fig:large_subgraphs}. The most common substructure with more than six vertices is a six-star $S_6$, which appears in $29$ user graphs' largest weak component. This aligns with the notion of central users often acting as hubs, either for generating reactions or being highly active in reacting to others. This is a general trend for most of the subgraphs, with pure stars having higher support than pure chains. In fact, for subgraphs where $|V| \geq 8$, the pure chain does not appear within the mined set of graphs with a minimum support threshold of $21$. The rest of the subgraphs are somewhere in between stars and chains, often occurring in the form of stars extended with a chain, or a chain connecting two stars. The support for these interpolations appears to correlate with the degree to which they resemble a star or a chain. By comparison, the chains' support is generally equal to the stars' support in Twitter networks, indicating a preference for chains when compared to TikTok.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering    
+        \input{figures/5 results/large_subgraphs}
+    \end{adjustwidth}
+    \caption{The figure displays frequent subgraphs with seven or more nodes in the user graphs, grouped by their number their number of vertices $|V|$, down to support threshold $22$ (see the full figure in Appendix \ref{lab:fsm_appendix} Table \ref{fig:large_subgraphs_full}). The numbers are the support in TikTok and Twitter respectively. Generally, stars and star-like patterns are the most common for each size, with chains and chain-like patterns having systematically lower supports.}
+    \label{fig:large_subgraphs}
+\end{figure}
+
+Nuancing the subgraphs with direction provides further insight into the tendencies in stitch behavior. As reflected by the lack of odd-numbered cycles, a user being both stitched and stitching another user is rare. This is further reinforced by the directed subgraphs in Figure \ref{fig:directed_subgraphs}, showing an out-two-star has support $34$, an in-two-star has support $33$, but a mixed-direction two-star has support $22$, meaning it is comparatively uncommon for a user to both stitch and be stitched. The same trend is reflected in all larger structures, with three-stars $S_3$ having out-star support $32$, in-star support $31$ and mixed-star support $17$ or $14$ based on the specific directionality. Conversely, Twitter exhibits relatively uniform levels of support across in-, out- and mixed-direction two-stars $S_2$. Moreover, three-stars $S_3$ display interesting supports. Although the in- and out-three-star $S_3$ Twitter support is comparable, the two mixed-direction three-stars $S_3$ vary greatly compared to all previous Twitter support patterns. 
+
+From the figure, the square from above is also specified with direction. As hypothesized, the square consists of two users collectively stitching two other users, forming a weak cycle. This pattern has equivalent support with the undirected square, and no other directed squares are mined, leading to this structure largely explaining the undirected squares support. 
+
+\begin{figure}[h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/5 results/directed_subgraphs}
+    \end{adjustwidth}
+    \caption{The figure shows the frequent directed subgraphs identified in the user graphs. Due to computational constraints, the analysis was limited to subgraphs with four or fewer nodes.
+    We observe that chains and star structures with mixed direction occurs a lot less frequently than those with consistent directionality.} 
+    \label{fig:directed_subgraphs}
+\end{figure}
+
+% Something something motifs
+
+To determine whether any mined subgraph is a motif, subgraphs are compared to relevant null models. Doing this did not reveal significant motifs for undirected and directed subgraph mining. This result is likely due to the choice of null model, the simplicity of the mined subgraphs, and the specific support definition. Configuration models preserve the degree distribution, and many of the simple structures are explained by the degree distribution. For instance, stars can be entirely explained by the degree distribution: high-degree central nodes and low-degree peripheral nodes (each with an out-degree of $1$) will occur with equal prevalence in a configuration model. Other mined subgraphs are often star-like patterns, and in combination with the large size of many user graphs, the subgraphs are likely to emerge by chance based on the given degree distribution. This is further perpetuated by the support definition. Each subgraph only has to appear once for it to count towards the support, meaning the support definition does not account for differences in frequency within the user graphs and configuration models.   
+
+% However, our analysis does not reveal significant motifs within the TikTok stitch networks. This result is likely due to the dominant star-like structures characteristic of these graphs. Configuration models preserve the degree distribution, and in the case of star structures, the high-degree central nodes (representing hubs) and low-degree peripheral nodes (degree of 1) are maintained. This results in similar subgraph occurrences between the observed graphs and the configuration models, making it challenging to identify motifs that exceed the baseline expectations.
+
+
+\subsection{Sentiment Subgraphs}
+
+Adding sentiment as a dimension yields the subgraphs illustrated in Figure \ref{fig:sentiment_subgraphs}. From these we see that positive and negative edges have a support of $30$, missing sentiment edges $27$, and neutral edges $22$. An explanation for the maximum support of $30$ lies in the size of the largest components, as ten user graphs have a largest component size of $|V_{lcc}| \leq 11$. Outside of these surface-level observations, no clear trends emerge with regard to sentiment patterns. 
+
+A notable observation is the lack of anything between pure stars and chains, unlike in the previous subgraph mining. In fact, subgraphs with $|V| \geq 5$ consist of purely stars, further indicating that TikTok stitch networks are dominated by this pattern. Although no mechanism prevents other subgraphs from appearing, the likely reason for their absence is the increased number of possible subgraphs, especially due to the limited largest component sizes. As four new edge classes are introduced, the possible subgraphs increase exponentially.  
+
+\begin{figure}[h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/5 results/sentiment_subgraphs}
+    \end{adjustwidth}
+    \caption{The subgraphs identified in Figure \ref{fig:subgraph_hierarchy}, enriched with sentiment labels. Green edges represent \textcolor{SentimentPositive}{positive} sentiments, red for \textcolor{SentimentNegative}{negative}, gray for \textcolor{SentimentNeutral}{neutral}, and blue for \textcolor{SentimentMissing}{missing} sentiments. The subgraphs highlight how sentiment influences the structure of user interactions. Star-like structural patterns dominate, reflecting either central user receiving reactions, or a central user reacting. If a subgraph contains a \textcolor{SentimentMissing}{missing} sentiment edge, the Twitter support is undefined.}
+    \label{fig:sentiment_subgraphs}
+\end{figure}
+
+Building on the undirected sentiment subgraphs, Figure \ref{fig:sentiment_directed} introduces directionality as an additional dimension. However, no new unexpected patterns emerge with regard to the combination of sentiment and direction. 
+
+\begin{figure}[h]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/5 results/sentiment_directed}
+    \end{adjustwidth}
+    \caption{Mined sentiment subgraphs, extending Figure \ref{fig:sentiment_subgraphs} with direction, showing all subgraphs with $support \geq 19$. The full figure can be found in Appendix \ref{lab:fsm_appendix} Figure \ref{fig:sentiment_directed_full}.}
+    \label{fig:sentiment_directed}
+\end{figure}
+
+
+
+\clearpage
+\section{Graph embeddings}
+
+To compare the collected graphs with clustering, we employ various graph embedding techniques to find a representation that facilitates vectorized comparisons. To this end, we employ two approaches: we apply the graph representation learning algorithm Graph2Vec, and we use the identified subgraphs in a Bag-Of-Subgraphs approach, leading to the results seen in Figure \ref{fig:emb_scatter}. 
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/5 results/embeddings_comparison.pgf}\\
+        \input{figures/5 results/legend.pgf}
+    \end{adjustwidth}
+    \caption{Comparison of user graphs across three embedding spaces, labeled by assigned hashtag categories, clustered using HDBSCAN, and subsequently dimensionality reduced with UMAP. They reveal no separation between graphs corresponding to different categories. This observation is further reinforced by the minimal overlap between the assigned categories and the clusters identified by HDBSCAN.}
+    \label{fig:emb_scatter}
+\end{figure}
+
+Inspecting the figure reveals no clear separation between graphs of different categories in any embedding space, indicating no relationship between the graph topologies and the categorization in the embedding spaces. Moreover, in the Graph-2Vec representation, three clusters are detected, whereas both Bag-Of-Subgraphs reveal only two clusters. Investigating the driving mechanism behind this partitioning, we find that the size of the graphs almost entirely explain the clustering. In the Graph2Vec space, the average graph size for cluster $0$ is $6.3$, $1$ is $55.9$, and $2$ is $230.7$, and the same trend is observed in the other two representations, showing a strong positive correlation between cluster assignment and graph size. These detected clusters show no overlap with the categorization. Calculating Normalized Mutual Information (NMI) between the categorization and the detected clusters supports this observation, with NMI values ranging from $0.001$ to $0.054$, further confirming the lack of overlap. Alternative embedding methods are presented in Appendix \ref{lab:alt_graph_embs} Figures \ref{fig:feathergraph_embeddings}, \ref{fig:directed_subgraph_embeddings}, and \ref{fig:directed_sentiment_subgraph_embeddings}.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{adjustwidth}{-\textwidth}{-\textwidth}
+        \centering
+        \input{figures/5 results/twitter_comparison.pgf}
+    \end{adjustwidth}
+    \caption{Comparison of user graph embeddings from TikTok and Twitter across three embedding spaces, dimensionality reduced with UMAP. While no distinct separation is observed for most graphs, larger Twitter graphs appear to occupy a slightly different region compared to TikTok graphs in the Graph2Vec embedding space. No such distinction is evident in either Bag-Of-Subgraphs.}
+    \label{fig:twitter_scatter}
+\end{figure}
+
+Similar to the previous results, Figure \ref{fig:twitter_scatter} reveals no clear distinction between TikTok user graphs and Twitter reply networks across both variants of Bag-Of-Subgraph. However, in the Graph2Vec embedding space, larger Twitter graphs occupy a distinct region compared to TikTok graphs, suggesting potential differences in graph structures for larger graphs. Consistent with observations in the TikTok-only analysis, graph size remains the primary factor driving separation across all embedding spaces. Smaller Twitter graphs tend to cluster near smaller TikTok user graphs, while larger graphs from both platforms are similarly grouped. Overall, the embeddings do not show strong platform-specific grouping for the majority of graphs.
+
+% g2v hdbscan nmi: 0.054 (12 outliers)
+% motifs embedding nmi: 0.001 (1 outlier)

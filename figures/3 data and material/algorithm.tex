@@ -1,0 +1,31 @@
+%\setcounter{algorithm}{-1}
+\begin{algorithm}
+%\caption{Scene Detection for TikTok Videos (First 5 Seconds)}
+\begin{algorithmic}[1]
+\Require A stitch video
+\Ensure The respective stitcher and stitchee parts of the video  %Split points for scene shifts or default at 5 seconds
+
+\State $thresholds \gets [9, 6, 5]$ \Comment{Adaptive threshold for detecting scenes}
+\State $splitPoint \gets 5$ \Comment{Default split point}
+\State $videoSegment \gets \text{ExtractSegment}(\text{video}, 0, 5)$ \Comment{Only use the first 5s}
+
+\For{$threshold$ in $thresholds$}
+    \State $sceneShifts \gets \text{DetectSceneShifts}(videoSegment, threshold)$
+    \If{$\text{length}(sceneShifts) > 0$}
+%        \State $splitPoint \gets \text{LastDetectedShift}(sceneShifts)$
+        \State $splitPoint \gets \text{GetLastSceneShift}(sceneShifts)$
+        \State \textbf{break}
+    \EndIf
+\EndFor
+
+\\
+\State $\text{SplitVideoAt}(\text{video}, splitPoint)$ \Comment{Split video at detected split point}
+\\
+
+\Function{DetectSceneShifts}{$videoSegment$, $threshold$} \Comment{From \texttt{scenedetect}}
+    \State \Return list of timestamps where scene shifts are detected based on $threshold$
+\EndFunction
+\end{algorithmic}
+\caption{Pseudocode for splitting videos into stitcher and stitchee}
+\label{pseudocode}
+\end{algorithm}

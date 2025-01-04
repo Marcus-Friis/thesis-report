@@ -1,0 +1,54 @@
+
+% TODO: Add input graph with no colors --> output graph with sentiment colors
+\begin{tikzpicture}[node distance=4cm]
+    % Nodes
+    \node (download)   [process] {\makecell{Download\\ video content\\ \scriptsize{\textit{video.mp4}}}};
+    \node (split)      [process, right of=download] {\makecell{Split videos\\ into stitcher\\ and stitchee\\ \scriptsize{\textit{scene1.mp4, scene2.mp4}}}};
+    \node (filter)     [process, right of=split] {\makecell{Filter non-english\\ languages\\ \scriptsize{\textit{en, da, fi, ko, af...}}}};
+    \node (transcribe) [process, above right=0.5cm of filter] {\makecell{Transcribe audio\\ \scriptsize{\textit{"I'm curious what do..."}}}};
+    \node (classify_aud) [process, below right=0.5cm of filter] {\makecell{Classify\\ audio type\\ \scriptsize{\textit{Speech, Music, Silence...}}}};
+    \node (classify_sent)   [process, right of=transcribe] {\makecell{Classify sentiment\\ \scriptsize{\textit{Positive, Neutral, Negative}}}};
+    
+    % Arrows
+    \draw [arrow] (download) -- (split);
+    \draw [arrow] (split) -- (filter);
+    \draw [arrow] (filter) -- (transcribe);
+    \draw [arrow] (filter) -- (classify_aud);
+    \draw [arrow] (transcribe) -- (classify_sent);
+\end{tikzpicture}
+ 
+
+
+
+
+
+% \begin{center}
+% \begin{tikzpicture}[node distance=3.66cm]
+
+% % \node (start) [startstop] {Start};
+% % \node (process1) [process, right of=start] {Process 1};
+% % \node (process2) [process, right of=process1] {Process 2};
+% % \node (stop) [startstop, right of=process2] {Stop};
+
+% % \draw [arrow] (start) -- (process1);
+% % \draw [arrow] (process1) -- (process2);
+% % \draw [arrow] (process2) -- (stop);
+
+% % Nodes
+% \node (download)   [process] {Download video content};
+% \node (split)      [process, right of=download] {Split videos into stitcher and stitchee};
+% \node (filter)     [process, right of=split] {Filter music and non-english languages};
+% \node (transcribe) [process, right of=filter] {Transcribe audio};
+% \node (classify)   [process, right of=transcribe] {Classify sentiment};
+
+% % Arrows
+% \draw [arrow] (download) -- (split);
+% \draw [arrow] (split) -- (filter);
+% \draw [arrow] (filter) -- (transcribe);
+% \draw [arrow] (transcribe) -- (classify);
+
+
+% \end{tikzpicture}
+% \end{center}
+
+% Download → Split → Filter → Transcribe → Sentiment labeling → Sentiment labeled graph

@@ -1,0 +1,16 @@
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+We present TikTok StitchGraph: a collection of $36$ graphs based on TikTok stitches. With its rapid growth and widespread popularity, TikTok presents a compelling platform for study. Its recently introduced research API offers an opportunity to explore the intricacies of its content-remixing stitch feature. Leveraging this, in combination with web scraping, we construct graphs detailing stitch relations from both a video- and user-centric perspective. Specifically, we focus on user multi-digraphs, with vertices representing users and edges representing directed stitch relations. From the user graphs, we characterize common communication patterns of the stitch using frequent subgraph mining, finding a preference for stars and star-like structures, an aversion towards cyclic structures, and directional disposition favoring in- and out-stars over mixed-direction structures. These structures are augmented with sentiment labels in the form of edge attributes. However, the added complexity yields no new insights. Furthermore, no discovered subgraph is statistically significant under a configuration null model. Using these subgraphs for graph-level embeddings together with Graph2Vec, we show no clear distinction between topologies for different hashtag topic categories. Lastly, comparing StitchGraph to Twitter reply networks reveal no major findings with the subgraph analysis and graph embeddings. The dataset and methodology demonstrate one approach to comprising and analyzing network structures from TikTok.  
+
+The complete codebase written to create the results for this paper is available in the project repository: \url{https://github.com/Marcus-Friis/thesis}
+
+%chatty boy
+
+%Write an abstract for this paper
+
+% This study presents StitchTok, a novel dataset comprising 36 interaction graphs based on TikTok’s stitch functionality. By leveraging TikTok’s Research API and custom scraping pipelines, we constructed graphs reflecting user communication across diverse thematic hashtags. This dataset enables the examination of stitch-based communication patterns, addressing gaps in existing research on TikTok as a graph-structured platform. Our analysis explores topological features, sentiment dynamics, and motif patterns within the networks, comparing findings to analogous Twitter reply networks. Employing methods such as frequent subgraph mining, graph embeddings, and sentiment augmentation, we highlight characteristic interaction structures and thematic variations in TikTok stitches. Our findings reveal unique affordances of TikTok’s remix culture, providing foundational insights into short-form video communication and its implications for public discourse analysis.
+
+
+

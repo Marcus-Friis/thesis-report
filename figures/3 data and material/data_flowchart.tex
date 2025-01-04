@@ -1,0 +1,66 @@
+\SetVertexStyle[Shape=circle, InnerSep=2, MinSize=8, FillColor=orange!40, LineColor=black]
+\SetEdgeStyle[Color=gray, Arrow=-stealth]
+
+\tikzstyle{query} = [
+    rectangle,
+    minimum width=4cm, minimum height=1cm,
+    text width=3.8cm,
+    draw=black!0, 
+    fill=gray!20,
+    rounded corners,
+    align=center
+    % font=\normalfont
+]
+
+\tikzstyle{hashtags} = [
+    rectangle,
+    minimum width=2cm, minimum height=1cm,
+    text width=2cm,
+    draw=black!100, 
+    fill=yellow!0,
+    rounded corners,
+    align=center
+]
+
+
+\begin{tikzpicture}[node distance=4cm]
+    % Nodes
+    \node (stitch)   [process] {Query API for stitch videos};
+    \node (scrape)      [process, right of=stitch] {Scrape TikTok for stitchees};
+    \node (stitchee)      [process, right of=scrape] {Query API for stitchee metadata};
+    \node (dinfar) [query, below of=stitch, node distance=2.5cm] {period: May 2024,\\ hashtag: \textit{\#hashtag},\\ keyword: stitch with};
+    \node (hashtags) [hashtags, left of=dinfar] {\textit{\#abortion}\\ \textit{\#anime}\\ $\vdots$\\ \textit{\#trump2024}\\ \textit{\#watermelon}};
+    \node (dinmor) [query, below of=stitchee, node distance = 2.285cm, text width=4.7cm, align=center] {period: 2023 through May 24\\ video id: stitchee's video id};
+    % \node (graph) [process, right of=stitchee] {\faDatabase \hspace{.3cm}File storage}
+
+    \node (graph) at (11.6,0) {
+        \begin{tikzpicture}
+            \usetikzlibrary{fit}
+        
+            \Vertex[x=0.73, y=0.33]{1}
+            \Vertex[x=-0.00, y=0.00]{0}
+            \Vertex[x=-0.08, y=0.80]{2}
+            \Vertex[x=-0.79, y=0.17]{3}
+            \Vertex[x=-0.40, y=-0.70]{4}
+            \Vertex[x=0.54, y=-0.60]{5}
+            \Edge[Direct](1)(0)
+            \Edge[Direct](2)(0)
+            \Edge[Direct](3)(0)
+            \Edge[Direct](4)(0)
+            \Edge[Direct](5)(0)
+
+            \node[draw=black, rounded corners, fit=(1) (0) (2) (3) (4) (5), inner sep=0.2cm] {};
+        \end{tikzpicture}
+    };
+
+
+    
+    % Arrows
+    \draw [arrow] (stitch) -- (scrape);
+    \draw [arrow] (scrape) -- (stitchee);
+    \draw [arrow] (dinfar) -- (stitch);
+    \draw [arrow] (dinmor) -- (stitchee);
+    \draw [arrow] (stitchee) -- (graph);
+    \draw [arrow] (hashtags) -- (dinfar);
+    
+\end{tikzpicture}

@@ -1,0 +1,280 @@
+\SetVertexStyle[Shape=circle, InnerSep=1, MinSize=4, FillColor=black, LineColor=black]
+\SetEdgeStyle[Color=gray, Arrow=-stealth]
+
+\newcommand{\dyad}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=1, y=0]{1}
+    \Edge[](0)(1)
+\end{tikzpicture}
+}
+
+\newcommand{\triad}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0.5, y=0]{1}
+    \Vertex[x=1, y=0]{2}
+    \Edge[](0)(1)
+    \Edge[](1)(2)
+\end{tikzpicture}
+}
+
+\newcommand{\threechain}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0.33, y=0]{1}
+    \Vertex[x=0.66, y=0]{2}
+    \Vertex[x=1, y=0]{3}
+    \Edge[](0)(1)
+    \Edge[](1)(2)
+    \Edge[](2)(3)
+\end{tikzpicture}
+}
+
+\newcommand{\threestar}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0, y=0.5]{1}
+    \Vertex[x=-0.433, y=-0.25]{2}
+    \Vertex[x=0.433, y=-0.25]{3}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+\end{tikzpicture}
+}
+
+\newcommand{\fourchain}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0.33, y=0]{1}
+    \Vertex[x=0.66, y=0]{2}
+    \Vertex[x=1, y=0]{3}
+    \Vertex[x=1.33, y=0]{4}
+    \Edge[](0)(1)
+    \Edge[](1)(2)
+    \Edge[](2)(3)
+    \Edge[](3)(4)
+\end{tikzpicture}
+}
+
+\newcommand{\fourstar}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0.33, y=0.33]{1}
+    \Vertex[x=0.33, y=-0.33]{2}
+    \Vertex[x=-0.33, y=0.33]{3}
+    \Vertex[x=-0.33, y=-0.33]{4}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+    \Edge[](4)(0)
+\end{tikzpicture}
+}
+
+\newcommand{\starchain}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0, y=0.5]{1}
+    \Vertex[x=-0.433, y=-0.25]{2}
+    \Vertex[x=0.433, y=-0.25]{3}
+    \Vertex[x=0.866, y=-0.5]{4}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+    \Edge[](4)(3)
+\end{tikzpicture}
+}
+
+\newcommand{\hierarchygraph}{
+\begin{tikzpicture}[node distance=2.5cm]
+    % Nodes
+    \node (dyad) {\makecell{\dyad\\ $36$}};
+    \node (triad) [below=0.7cm of dyad] {\makecell{\triad\\ $34$}};
+    \node (threechain) [below left of=triad] {\makecell{\threechain\\ $32$}};
+    \node (threestar) [below right of=triad] {\makecell{\threestar\\ $33$}};
+    \node (fourchain) [below left of=threechain] {\makecell{\fourchain\\ $29$}};
+    \node (fourstar) [below right of=threestar] {\makecell{\fourstar\\ $32$}};
+    \node (starchain) [below right of=threechain] {\makecell{\starchain\\$30$}};
+
+    \draw (dyad) -- (triad);
+    \draw (triad) -- (threechain);
+    \draw (triad) -- (threestar);
+    \draw (threechain) -- (fourchain);
+    \draw (threechain) -- (starchain);
+    \draw (threestar) -- (fourstar);
+    \draw (threestar) -- (starchain);
+\end{tikzpicture}
+}
+
+
+
+\newcommand{\fivechain}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+	\Vertex[x=0.33, y=0]{1}
+	\Vertex[x=0.66, y=0]{2}
+	\Vertex[x=1, y=0]{3}
+	\Vertex[x=1.33, y=0]{4}
+	\Vertex[x=1.66, y=0]{5}
+    \Edge[](0)(1)
+    \Edge[](1)(2)
+    \Edge[](2)(3)
+    \Edge[](3)(4)
+    \Edge[](4)(5)
+\end{tikzpicture}
+}
+
+\newcommand{\threestarchain}{
+\begin{tikzpicture}
+	\Vertex[x=-0.165, y=0.285]{0}
+	\Vertex[x=-0.165, y=-0.285]{1}
+	\Vertex[x=0, y=0]{2}
+	\Vertex[x=0.33, y=0]{3}
+	\Vertex[x=0.66, y=0]{4}
+	\Vertex[x=1, y=0]{5}
+    \Edge[](0)(2)
+    \Edge[](1)(2)
+    \Edge[](2)(3)
+    \Edge[](3)(4)
+    \Edge[](4)(5)
+\end{tikzpicture}
+}
+
+\newcommand{\twothreestarchain}{
+\begin{tikzpicture}
+	\Vertex[x=-0.25, y=0.433]{0}
+	\Vertex[x=-0.25, y=-0.433]{1}
+	\Vertex[x=0, y=0]{2}
+	\Vertex[x=0.5, y=0]{3}
+	\Vertex[x=0.75, y=-0.433]{4}
+	\Vertex[x=0.75, y=0.433]{5}
+    \Edge[](0)(2)
+    \Edge[](1)(2)
+    \Edge[](2)(3)
+    \Edge[](3)(4)
+    \Edge[](3)(5)
+\end{tikzpicture}
+}
+
+\newcommand{\threestartwochainz}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0, y=0.5]{1}
+    \Vertex[x=-0.433, y=-0.25]{2}
+    \Vertex[x=0.433, y=-0.25]{3}
+    \Vertex[x=0.866, y=-0.5]{4}
+    \Vertex[x=-0.866, y=-0.5]{5}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+    \Edge[](4)(3)
+    \Edge[](5)(2)
+\end{tikzpicture}
+}
+
+\newcommand{\fourstarchain}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0.33, y=0.33]{1}
+    \Vertex[x=0.33, y=-0.33]{2}
+    \Vertex[x=-0.33, y=0.33]{3}
+    \Vertex[x=-0.33, y=-0.33]{4}
+    \Vertex[x=0.66, y=-0.66]{5}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+    \Edge[](4)(0)
+    \Edge[](5)(2)
+\end{tikzpicture}
+}
+
+\newcommand{\fivestar}{
+\begin{tikzpicture}
+	\Vertex[x=0, y=0]{0}
+    \Vertex[x=0, y=0.5]{1}
+    \Vertex[x=-0.47552825814757677, y=0.15450849718747373]{2}
+    \Vertex[x=-0.2938926261462366, y=-0.40450849718747367]{3}
+    \Vertex[x=0.2938926261462365, y=-0.4045084971874738]{4}
+    \Vertex[x=0.4755282581475768, y=0.15450849718747361]{5}
+    \Edge[](1)(0)
+    \Edge[](2)(0)
+    \Edge[](3)(0)
+    \Edge[](4)(0)
+    \Edge[](5)(0)
+\end{tikzpicture}
+}
+
+\newcommand{\hierarchygraphbig}{
+\begin{tikzpicture}[node distance=2.5cm]
+    % Nodes
+    \node (dyad) {\makecell{\dyad\\ $36$}};
+    \node (triad) [below=0.7cm of dyad] {\makecell{\triad\\ $34$}};
+    \node (threechain) [below left of=triad] {\makecell{\threechain\\ $32$}};
+    \node (threestar) [below right of=triad] {\makecell{\threestar\\ $33$}};
+    \node (fourchain) [below left of=threechain] {\makecell{\fourchain\\ $29$}};
+    \node (fourstar) [below right of=threestar] {\makecell{\fourstar\\ $32$}};
+    \node (starchain) [below right of=threechain] {\makecell{\starchain\\$30$}};
+    \node (fivechain) [below left of=fourchain] {\makecell{\fivechain\\ $27$}};
+    \node (threestarchain) [below of=fourchain] {\makecell{\threestarchain\\ $28$}};
+    \node (twothreestarchain) [below left=2cm and 0cm of starchain] {\makecell{\twothreestarchain\\ $25$}};
+    \node (threestartwochainz) [below right=2cm and 0cm of starchain] {\makecell{\threestartwochainz\\ $28$}};
+    \node (fourstarchain) [below of=fourstar] {\makecell{\fourstarchain\\ $28$}};
+    \node (fivestar) [below right of=fourstar] {\makecell{\fivestar\\ $32$}};
+
+    \draw (dyad) -- (triad);
+    \draw (triad) -- (threechain);
+    \draw (triad) -- (threestar);
+    \draw (threechain) -- (fourchain);
+    \draw (threechain) -- (starchain);
+    \draw (threestar) -- (fourstar);
+    \draw (threestar) -- (starchain);
+    \draw (fourchain) -- (fivechain);
+    \draw (fourchain) -- (threestarchain);
+    \draw (starchain) -- (threestarchain);
+    \draw (starchain) -- (twothreestarchain);
+    \draw (starchain) -- (threestartwochainz);
+    \draw (starchain) -- (fourstarchain);
+    \draw (fourstar) -- (fourstarchain);
+    \draw (fourstar) -- (fivestar);
+    
+\end{tikzpicture}
+}
+
+\newcommand{\hierarchygraphlccbig}{
+\begin{tikzpicture}[node distance=2.5cm]
+    % Nodes
+    \node (dyad) {\makecell{\dyad\\ $36 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{6}$}};
+    \node (triad) [below=0.7cm of dyad] {\makecell{\triad\\ $34 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{6}$}};
+    \node (threechain) [below left of=triad] {\makecell{\threechain\\ $29 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (threestar) [below right of=triad] {\makecell{\threestar\\ $33 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{6}$}};
+    \node (fourchain) [below left of=threechain] {\makecell{\fourchain\\ $26 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (fourstar) [below right of=threestar] {\makecell{\fourstar\\ $32 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (starchain) [below right of=threechain] {\makecell{\starchain\\$28 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (fivechain) [below left of=fourchain] {\makecell{\fivechain\\ $24 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (threestarchain) [below of=fourchain] {\makecell{\threestarchain\\ $26 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (threestartwochainz) [below left=2cm and 0cm of starchain] {\makecell{\threestartwochainz\\ $24 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (twothreestarchain) [below right=2cm and 0cm of starchain] {\makecell{\twothreestarchain\\ $22 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+    \node (fourstarchain) [below of=fourstar] {\makecell{\fourstarchain\\ $27 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{4}$}};
+    \node (fivestar) [below right of=fourstar] {\makecell{\fivestar\\ $32 \hspace{4pt} | \hspace{4pt} \textcolor{TwitterBlue}{5}$}};
+
+    \draw (dyad) -- (triad);
+    \draw (triad) -- (threechain);
+    \draw (triad) -- (threestar);
+    \draw (threechain) -- (fourchain);
+    \draw (threechain) -- (starchain);
+    \draw (threestar) -- (fourstar);
+    \draw (threestar) -- (starchain);
+    \draw (fourchain) -- (fivechain);
+    \draw (fourchain) -- (threestarchain);
+    \draw (starchain) -- (threestarchain);
+    \draw (starchain) -- (twothreestarchain);
+    \draw (starchain) -- (threestartwochainz);
+    \draw (starchain) -- (fourstarchain);
+    \draw (fourstar) -- (fourstarchain);
+    \draw (fourstar) -- (fivestar);
+    
+\end{tikzpicture}
+}
+
+
+\hierarchygraphlccbig
